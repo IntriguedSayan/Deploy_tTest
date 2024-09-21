@@ -1,11 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import { login, register } from "../controllers/user.controller";
 
-const appRouter = express.Router();
 
-appRouter.get("/",(req:Request,res:Response)=>{
+const userRouter = express.Router();
 
-    res.status(200).json({message:"From user route"});
+userRouter.post("/register", register);
+userRouter.post("/login", login);
 
-})
-
-export {appRouter};
+export {userRouter};
